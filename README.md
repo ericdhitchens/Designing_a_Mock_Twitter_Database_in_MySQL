@@ -90,7 +90,16 @@ Unfortunately, MySQL does not allow for triggers to self-update tables; that is,
 
 ## Generating Fake Data with Python
 
-The general approach to generating the random data is to define classes that represent each table in the database, then instantiate lists of objects of those classes that are initialized with random parameters meeting the data criteria established in the SQL code. The random data rely on the Faker and Numpy libraries. For more detailed explanations, please see the comments in the Python code.
+The general approach to generating the random data is to define classes that represent each table in the database, then instantiate lists of objects of those classes that are initialized with random parameters meeting the data criteria established in the SQL code. The random data rely on the Faker and Numpy libraries. 
+
+I then format all of the lists using tuples and convert them into strings so that they can be in the correcct format for INSERT INTO statements in MySQL. All of the files are downloaded as .txt files for future reference, since each time the .py file is run, it will generat new, random data. If you don't care about storing the data in text files, you could directly connect to your MySQL database using pymysql and not save the txt files at all. For more detailed explanations of all steps involved in the Python code, please see the comments in the Python files.
+
+
+## Exploratory Data Analysis & Visualization
+
+The general approach to generating the random data is to define classes that represent each table in the database, then instantiate lists of objects of those classes that are initialized with random parameters meeting the data criteria established in the SQL code. The random data rely on the Faker and Numpy libraries. 
+
+I then format all of the lists using tuples and convert them into strings so that they can be in the correcct format for INSERT INTO statements in MySQL. All of the files are downloaded as .txt files for future reference, since each time the .py file is run, it will generat new, random data. If you don't care about storing the data in text files, you could directly connect to your MySQL database using pymysql and not save the txt files at all. For more detailed explanations of all steps involved in the Python code, please see the comments in the Python files.
 
 
 ## Database Design, Analysis, & Conclusions
