@@ -20,7 +20,7 @@ For reasons explained in the following sections, I expanded these six entities i
 
 
 ## The Relational Schemas
-The following sections explain the general concepts, clarifications, assumptions, and limitations of each of the tables included in this MySQL database design.
+The following sections explain the general concepts, clarifications, assumptions, and limitations of each of the tables included in this MySQL database design. The CREATE_DATABASE.sql file presents the MySQL code that generates all of the following tables and database triggers.
 
 
 ### The users table
@@ -91,7 +91,7 @@ Unfortunately, MySQL does not allow for triggers to self-update tables; that is,
 
 The general approach to generating the random data is to define classes that represent each table in the database, then instantiate lists of objects of those classes that are initialized with random parameters meeting the data criteria established in the SQL code. The random data rely on the Faker and Numpy libraries. 
 
-I then format all of the lists using tuples and convert them into strings so that they can be in the correcct format for INSERT INTO statements in MySQL. All of the files are downloaded as .txt files for future reference, since each time the .py file is run, it will generat new, random data. If you don't care about storing the data in text files, you could directly connect to your MySQL database using pymysql and not save the txt files at all. For more detailed explanations of all steps involved in the Python code, please see the comments in the Python files.
+I then format all of the lists using tuples and convert them into strings so that they can be in the correcct format for INSERT INTO statements in MySQL. All of the files are downloaded as .txt files for future reference, since each time the .py file is run, it will generat new, random data. If you don't care about storing the data in text files, you could directly connect to your MySQL database using pymysql and not save the txt files at all. For more detailed explanations of all steps involved in the Python code, please see the comments in the Python files. I provided both a regular .py file, as well as a Jupyter notebook .ipynb file.
 
 
 ## Exploratory Data Analysis & Visualization
@@ -104,19 +104,18 @@ After creating the database in MySQL and inserting the data that was randomly ge
 * Who are the 10 most popular users (i.e. which 10 users have the most followers)?
 * What are the top 10 most retweeted tweets?
 
-I then took that data and created visualizations in Tableau to showcase the statistics.
+The MySQL code for the above statements is presented in the Exploratory_Data_Analysis_SELECT_statements.sql file. I then took that data and created visualizations in Tableau to showcase the statistics. I generated statistics for the tweet table in the Finding_Tweets_Statistics.py and .ipynb files.
 
 
 ## Database Design, Analysis, & Conclusions
 
 While the design presented in this repository provides a solid basic foundation, its clear limitation is scalability. The major flaw is the self-referencing design of the comments and retweets tables. If left in this state, there could potentially be tens of thousands of tweets, comments, likes, etc. from a single user in a single year. Conversations in the comments of a single tweet could run into thousands of levels of sub-comments. This design also does not take into account the storage of multimedia files (music, audio, images, video, etc.).
 
-Twitter’s storage architecture used to be almost entirely based on MySQL. However, as they discovered, a better solution for handling data of this size at scale is to use a different technology specifically geared for big data. This is exactly the technology that Twitter helped to pioneer with the launch of Gizzard, FlockDB, and Snowflake in 2010, and Manhattan in 2014 (1).  By 2017, over 70% of its storage systems were based on distributed networks like Hadoop and Manhattan (2), and in recent years, Twitter has been increasing its use of Google’s cloud computing and storage services for these purposes (3).
+Twitter’s storage architecture used to be almost entirely based on MySQL. However, as they discovered, a better solution for handling data of this size at scale is to use a different technology specifically geared for big data. This is exactly the technology that Twitter helped to pioneer with the launch of Gizzard, FlockDB, and Snowflake in 2010, and Manhattan in 2014 (1).  By 2017, over 70% of its storage systems were based on distributed networks like Hadoop and Manhattan (1), and in recent years, Twitter has been increasing its use of Google’s cloud computing and storage services for these purposes (2).
 
 In conclusion, while this design in MySQL is a good educational exercise, its implementation at scale would be better handled by distributed, cloud-based systems like Hadoop and Manhattan.
 
 ### References:
 1. https://blog.twitter.com/engineering/en_us/topics/infrastructure/2017/the-infrastructure-behind-twitter-scale.html
-2. https://blog.twitter.com/engineering/en_us/topics/infrastructure/2017/the-infrastructure-behind-twitter-scale.html
-3. https://blog.twitter.com/engineering/en_us/topics/infrastructure/2019/expand-the-edge.html
+2. https://blog.twitter.com/engineering/en_us/topics/infrastructure/2019/expand-the-edge.html
 
