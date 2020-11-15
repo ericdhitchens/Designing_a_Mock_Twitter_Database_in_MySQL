@@ -16,7 +16,7 @@ Twitter is a social media platform that allows users to post their thoughts as t
 * comments
 * hashtags
 
-For reasons explained in the following sections, I expand these six entities into nine relational tables. The enhanced entity relationship (EER) diagram in this repository presents the relational schemas. I will generate the random data using Python.
+For reasons explained in the following sections, I expanded these six entities into nine relational tables. The enhanced entity relationship (EER) diagram in this repository presents the relational schemas. I generated the random data using Python.
 
 
 ## The Relational Schemas
@@ -26,15 +26,14 @@ The following sections explain the general concepts, clarifications, assumptions
 ### The users table
 * User Login/Security: Storing user login information would not usually occur in such a table. Encryption of login and other personally identifiable information is outside the scope of this exercise.
 * user_handle: This is the Twitter handle associated with each account.
-* phone_numberr: I assume that the users are from the United States with a standard 10 digit phone number. I used the CHAR(10) data type to validate the data.
-* NOT NULL Constraints: I assume that users will sign up with an email address, with the phone number and sex remaining optional.
-* birthday: I assume that the data will be entered into the database in the form YYYY-MM-DD.
+* phone_numberr: I assumed that the users are from the United States with a standard 10 digit phone number. I used the CHAR(10) data type to validate the data.
+* NOT NULL Constraints: I assumed that users will sign up with an email address, with the phone number and sex remaining optional.
+* birthday: I assumed that the data will be entered into the database in the form YYYY-MM-DD.
 
 
 ### The followers table
-We read the first two columns as “user with users.user_id equal to followers.follower_id is following the user with users.user_id equal to followers.following_id.” 
-
-The follower_id and following_id are primary keys for the table and are foreign keys pointing to the users table. This ensures that a user can only follow another user once, i.e. there must be unique entries in this table.
+* You read the first two columns as “user with users.user_id equal to followers.follower_id is following the user with users.user_id equal to followers.following_id.” 
+* The follower_id and following_id are primary keys for the table and are foreign keys pointing to the users table. This ensures that a user can only follow another user once, i.e. there must be unique entries in this table.
 
 
 ### The tweets table
@@ -43,7 +42,7 @@ The table assumes that the number of likes, comments, and retweets on each tweet
 
 The clear limitation of this table is that it does not allow for retweets. This is because when a user retweets a tweet on Twitter, the tweet appears on the user’s profile with the same appearance and engagement statistics as the original poster’s (OP). 
 
-We could include retweets with a self-referencing op_tweet_id feature in this table, but that can be normalized by creating a separate retweets table. This way, the retweets will not be easily confused with the OP tweets and are more reflective of the actual Twitter user experience. For reasons listed below, the next table that must be created prior to the retweets table is the comments table.
+I could have included retweets with a self-referencing op_tweet_id feature in this table, but that can be normalized by creating a separate retweets table. This way, the retweets will not be easily confused with the OP tweets and are more reflective of the actual Twitter user experience. For reasons listed below, the next table that must be created prior to the retweets table is the comments table.
 
 
 ### The comments table
@@ -97,9 +96,15 @@ I then format all of the lists using tuples and convert them into strings so tha
 
 ## Exploratory Data Analysis & Visualization
 
-The general approach to generating the random data is to define classes that represent each table in the database, then instantiate lists of objects of those classes that are initialized with random parameters meeting the data criteria established in the SQL code. The random data rely on the Faker and Numpy libraries. 
+After creating the database in MySQL and inserting the data that was randomly generated in Python, I ran SELECT statements to answer the following questions:
 
-I then format all of the lists using tuples and convert them into strings so that they can be in the correcct format for INSERT INTO statements in MySQL. All of the files are downloaded as .txt files for future reference, since each time the .py file is run, it will generat new, random data. If you don't care about storing the data in text files, you could directly connect to your MySQL database using pymysql and not save the txt files at all. For more detailed explanations of all steps involved in the Python code, please see the comments in the Python files.
+* Who are the top 10 users who tweet the most?
+* Which 10 tweets have the most likes?
+* Which 10 tweets have the most comments?
+* Who are the 10 most popular users (i.e. which 10 users have the most followers)?
+* What are the top 10 most retweeted tweets?
+
+I then took that data and created visualizations in Tableau to showcase the statistics.
 
 
 ## Database Design, Analysis, & Conclusions
