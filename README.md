@@ -27,7 +27,7 @@ The following sections explain the general concepts, clarifications, assumptions
 * User Login/Security: Storing user login information would not usually occur in such a table. Encryption of login and other personally identifiable information is outside the scope of this exercise.
 * user_handle: This is the Twitter handle associated with each account.
 * phone_number: I assume that the users are from the United States with a standard 10 digit phone number. I use the CHAR(10) data type to validate the data.
-* NOT NULL Constraints: I assume that users will sign up with an email address, with the phone number and sex remaining optional.
+* NOT NULL Constraints: I assume that users will sign up with an email address, with the phone number remaining optional.
 * birthday: I assume that the data will be entered into the database in the form YYYY-MM-DD.
 
 
