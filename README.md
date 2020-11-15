@@ -2,7 +2,7 @@
 
 ## The Challenge
 
-How would you design a mock database in MySQL that stores Twitter data? And how could you generate random data to populate that database? These are the questions I explore in this portfolio project.
+How would you design a database in MySQL that stores Twitter data? And how could you generate random data to populate that database? These are the questions I explore in this portfolio project.
 
 
 ## Basic Database Features
@@ -26,9 +26,9 @@ The following sections explain the general concepts, clarifications, assumptions
 ### The users table
 * User Login/Security: Storing user login information would not usually occur in such a table. Encryption of login and other personally identifiable information is outside the scope of this exercise.
 * user_handle: This is the Twitter handle associated with each account.
-* phone_numberr: I assumed that the users are from the United States with a standard 10 digit phone number. I used the CHAR(10) data type to validate the data.
-* NOT NULL Constraints: I assumed that users will sign up with an email address, with the phone number and sex remaining optional.
-* birthday: I assumed that the data will be entered into the database in the form YYYY-MM-DD.
+* phone_number: I assume that the users are from the United States with a standard 10 digit phone number. I use the CHAR(10) data type to validate the data.
+* NOT NULL Constraints: I assume that users will sign up with an email address, with the phone number and sex remaining optional.
+* birthday: I assume that the data will be entered into the database in the form YYYY-MM-DD.
 
 
 ### The followers table
@@ -38,7 +38,7 @@ The following sections explain the general concepts, clarifications, assumptions
 
 ### The tweets table
 
-The table assumes that the number of likes, comments, and retweets on each tweet will be updated either through database triggers or from other automation on the client or back end software. They are merely listed here for the convenience of anyone accessing the database and could be omitted and derived with SELECT statements instead if desired. A discussion of the database triggers is included in its own section below.
+The table assumes that the number of likes, comments, and retweets on each tweet will be updated either through database triggers or from other automation on the client or back end software. They are merely listed here for the convenience of anyone accessing the database and could be omitted and derived with SELECT statements instead, if desired. A discussion of the database triggers is included in its own section below.
 
 The clear limitation of this table is that it does not allow for retweets. This is because when a user retweets a tweet on Twitter, the tweet appears on the user’s profile with the same appearance and engagement statistics as the original poster’s (OP). 
 
