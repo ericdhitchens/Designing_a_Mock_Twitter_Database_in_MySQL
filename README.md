@@ -104,7 +104,7 @@ After creating the database in MySQL and inserting the data that was randomly ge
 * Who are the 10 most popular users (i.e. which 10 users have the most followers)?
 * What are the top 10 most retweeted tweets?
 
-The MySQL code for the above statements is presented in the Exploratory_Data_Analysis_SELECT_statements.sql file. I then took that data and created visualizations in Tableau to showcase the statistics. I generated statistics for the tweet table in the Finding_Tweets_Statistics.py and .ipynb files.
+The MySQL code for the above statements is presented in the Exploratory_Data_Analysis_SELECT_statements.sql file. I then took that data and created visualizations in Tableau to showcase the statistics. I generated statistics for the tweet table in the Finding_Tweets_Statistics.py and .ipynb files. All of these files and images are available in the Exploratory_Data_Analysis_Visualization folder. 
 
 
 ## Database Design, Analysis, & Conclusions
