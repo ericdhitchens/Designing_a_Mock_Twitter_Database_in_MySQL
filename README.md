@@ -4,6 +4,15 @@
 
 How would you design a database in MySQL that stores Twitter data? And how could you generate random data to populate that database? These are the questions I explore in this portfolio project.
 
+## Repository File Structure
+
+* 01_MySQL_Code - Contains SQL scripts that create and query the database
+* 02_Python_Code - Contains the Jupyter notebooks where I generate the fake data in Python. .py files are also included for reference. The Jupyter files are also presented as LaTeX PDFs in the 05_PDF_Reports folder.
+* 03_Data_Files - Contains the text files generated from the Python code, and the SQL INSERT INTO script that enters all the data into the databse.
+* 04_Exploratory_Data_Analysis_Visualization
+	* Data_Visualization_Images - Contains the images generated in Tableau that visualize the data of the SELECT statements 
+	* SELECT_Statements_CSV_Data - Contains the data used to generate the images in the Data_Visualization_Images folder
+* 05_PDF_Reports - Contains PDF versions of the Jupyter notebooks in the 02_Python_Code folder. The files were exported to PDF via LaTeX from the Jupyter notebooks.
 
 ## Basic Database Features
 
