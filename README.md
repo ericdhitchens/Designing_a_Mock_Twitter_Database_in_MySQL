@@ -26,10 +26,10 @@ Twitter is a social media platform that allows users to post their thoughts as t
 * comments
 * hashtags
 
-For reasons explained in the following sections, I expanded these six entities into nine relational tables. The enhanced entity relationship (EER) diagram in this repository presents the relational schemas. I generated the random data using Python.
+For reasons explained in the following sections, I expanded these six entities into nine relational tables. The enhanced entity relationship (EER) diagram in this repository presents the relational schema. I generated the random data using Python.
 
 
-## The Relational Schemas
+## The Relational Schema
 The following sections explain the general concepts, clarifications, assumptions, and limitations of each of the tables included in this MySQL database design. The CREATE_DATABASE.sql file presents the MySQL code that generates all of the following tables and database triggers.
 
 
@@ -63,7 +63,7 @@ A level 2 (L2) comment is then a comment of an L1 comment. An L2 comment would b
 
 Continuing this, an L3 comment’s parent_comment_id is equal to the comment_id of the L2 comment to which it belongs, and so on and so forth. However, all comments on the same tweet, regardless of their level, will list the same op_tweet_id.
 
-Since a comment can be both commented on and retweeted infinitely many times, we could have infinitely many branches of sub-comments that could result in their own schemas. For the sake of simplicity in the scope of this exercise, I have chosen to log all of the comments into this single table. 
+Since a comment can be both commented on and retweeted infinitely many times, we could have infinitely many branches of sub-comments that could result in their own schema. For the sake of simplicity in the scope of this exercise, I have chosen to log all of the comments into this single table. 
 
 
 ### The retweets table
