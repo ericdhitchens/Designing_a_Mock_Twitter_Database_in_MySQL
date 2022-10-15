@@ -13,7 +13,7 @@ How would you design a database in MySQL that stores Twitter data? And how could
 	* Data_Visualization_Images - Contains the images generated in Tableau that visualize the data of the SELECT statements.
 	* SELECT_Statements_CSV_Data - Contains the data used to generate the images in the Data_Visualization_Images folder.
 * 05_PDF_Reports - Contains PDF versions of the Jupyter notebooks in the 02_Python_Code folder. The files were exported to PDF via LaTeX from the Jupyter notebooks.
-* Enhanced_Entity_Relationship_Diagram.jpeg - This is the EER diagram that presents the relationships between each of the database tables discussed in the following sections.
+* Enhanced_Entity_Relationship_Diagram.jpeg - This is the ERD diagram that presents the relationships between each of the database tables discussed in the following sections.
 
 ## Basic Database Features
 
